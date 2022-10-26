@@ -1,10 +1,10 @@
-import React from 'react';
+import '../styles/Counter.css';
 
 function Counter(props: { text: string; value: number }) {
   const { text, value } = props;
 
   return (
-    <div>
+    <div className='counter'>
       {text}: {value}
     </div>
   );
