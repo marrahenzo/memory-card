@@ -1,0 +1,19 @@
+.card {
+  --width: 18.3vw;
+  width: var(--width);
+  border: 3px solid #85784a;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img {
+  width: var(--width);
+}
+
+.card-text {
+  font-family: GFSNeohellenic, sans-serif;
+  font-size: 2vw;
+  padding-bottom: 5px;
+  color: white;
+  background-color: black;
+}
