@@ -11,9 +11,9 @@ function App() {
         <img src={logo} alt='Smite logo' />
       </div>
       <div id='counter-container'>
-        <Counter text='Current score' value={0} />
+        <Counter text='CURRENT SCORE' value={0} />
         {/* TODO: get value from localStorage */}
-        <Counter text='Best score' value={0} />
+        <Counter text='BEST SCORE' value={0} />
       </div>
       <div id='card-container'>example card</div>
     </div>
