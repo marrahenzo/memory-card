@@ -1,21 +1,28 @@
+@font-face {
+  font-family: GFSNeohellenic;
+  src: url('../media/fonts/GFSNeohellenic-Regular.ttf');
+}
+
 .App {
   display: flex;
   flex-direction: column;
 }
 
 #header {
+  padding: 10px 0px;
   text-align: center;
-  background-color: #1a273b;
+  background-color: #05111e;
   border: 3px solid #85784a;
 }
 
 #header > img {
-  max-width: 200px;
+  max-width: 10vw;
 }
 
 #background-image {
   position: absolute;
-  max-width: 98.8vw;
+  max-width: 100vw;
+  left: -10px;
   z-index: -1;
   filter: blur(4px);
 }
