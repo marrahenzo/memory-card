@@ -1,10 +1,12 @@
 import Counter from './components/Counter';
 import './styles/App.css';
 import logo from './media/images/smitelogo.png';
+import background from './media/images/background.jpg';
 
 function App() {
   return (
     <div className='App'>
+      <img src={background} alt='Background' id='background-image' />
       <div id='header'>
         <img src={logo} alt='Smite logo' />
       </div>
