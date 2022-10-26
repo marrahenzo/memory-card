@@ -1,0 +1,23 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  text-align: center;
+  background-color: #1a273b;
+  border: 3px solid #85784a;
+}
+
+#header > img {
+  max-width: 200px;
+}
+
+#counter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#card-container {
+  text-align: center;
+}
