@@ -4,12 +4,18 @@ import logo from './media/images/smitelogo.png';
 import background from './media/images/background.jpg';
 import React, { useState } from 'react';
 import Card from './components/Card';
-import apollo from './media/images/apollo.jpg';
+import gods from './gods';
 
 function App() {
   const [score, setScore] = useState(0);
   /* TODO: get value from localStorage */
   const [best, setBest] = useState(0);
+
+  function increaseScore() {
+    setScore((prevScore) => {
+      return prevScore + 1;
+    });
+  }
 
   function loseGame() {
     console.log('lost!');
@@ -22,12 +28,35 @@ function App() {
         <img src={logo} alt='Smite logo' />
       </div>
       <div id='counter-container'>
-        <Counter text='CURRENT SCORE' value={0} />
+        <Counter text='CURRENT SCORE' value={score} />
         {/* TODO: get value from localStorage */}
         <Counter text='BEST SCORE' value={0} />
       </div>
       <div id='card-container'>
-        <Card img={apollo} name='Apollo' lose={loseGame} />
+        <Card
+          img={gods.Apollo}
+          name='Apollo'
+          lose={loseGame}
+          point={increaseScore}
+        />
+        <Card
+          img={gods.Mercury}
+          name='Mercury'
+          lose={loseGame}
+          point={increaseScore}
+        />
+        <Card
+          img={gods.Bellona}
+          name='Bellona'
+          lose={loseGame}
+          point={increaseScore}
+        />
+        <Card
+          img={gods.Hebo}
+          name='He Bo'
+          lose={loseGame}
+          point={increaseScore}
+        />
       </div>
     </div>
   );
