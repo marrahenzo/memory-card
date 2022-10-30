@@ -57,30 +57,6 @@ function App() {
           lose={loseGame}
           point={increaseScore}
         />
-        <Card
-          img={gods.Apollo}
-          name='Apollo'
-          lose={loseGame}
-          point={increaseScore}
-        />
-        <Card
-          img={gods.Apollo}
-          name='Apollo'
-          lose={loseGame}
-          point={increaseScore}
-        />
-        <Card
-          img={gods.Apollo}
-          name='Apollo'
-          lose={loseGame}
-          point={increaseScore}
-        />
-        <Card
-          img={gods.Apollo}
-          name='Apollo'
-          lose={loseGame}
-          point={increaseScore}
-        />
       </div>
     </div>
   );
