@@ -7,12 +7,16 @@
   flex-direction: column;
   margin: 0px 50px;
   box-shadow: inset 0 0 15px 10px black;
+  transition: all 0.1s ease;
+}
+
+.card:hover {
+  scale: 110%;
 }
 
 .card-img {
   width: var(--width);
   height: var(--height);
-  z-index: -1;
 }
 
 .card-text {
