@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
 import '../styles/Card.css';
 
 function Card(props: {
   img: string;
   name: string;
-  lose: Function;
-  point: Function;
+  clicked: Function;
+  id: string;
 }) {
-  const [clicked, setClicked] = useState(false);
-  const { img, name, lose, point } = props;
-
-  function handleClick() {
-    if (!clicked) {
-      setClicked(true);
-      point();
-    } else lose();
-  }
+  const { img, name, clicked, id } = props;
 
   return (
-    <div onClick={handleClick} className='card'>
+    <div onClick={() => clicked(id)} className='card'>
       <img src={img} alt={name + ' character art'} className='card-img' />
       <div className='card-text'>{name}</div>
     </div>
