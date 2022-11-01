@@ -2,7 +2,7 @@ import Counter from './components/Counter';
 import './styles/App.css';
 import logo from './media/images/smitelogo.png';
 import background from './media/images/background.jpg';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './components/Card';
 import gods, { God } from './gods';
 import uniqid from 'uniqid';
@@ -12,17 +12,14 @@ function App() {
   /* TODO: get value from localStorage */
   const [best, setBest] = useState(0);
   const [level, setLevel] = useState(0);
-  const [clickedCards, setClickedCards] = useState<string[]>([]);
+  const [clickedCards, setClickedCards] = useState(0);
   const [drawnCards, setDrawnCards] = useState(getCards(gods, 4 + 2 * level));
-  const [currentlyClickedCard, setCurrentlyClickedCard] = useState('');
   //Use dummy card array to infer type
   const [deck, setDeck] = useState([
     <Card img='' name='' clicked={() => ''} key='asd' />
   ]);
   //Variable to initially load cards
   const [loaded, setLoaded] = useState(false);
-  //Global game state
-  const [gameOver, setGameOver] = useState(false);
 
   //Take n elements from the gods array and put them in another array
   function getCards(sourceArr: God[], amount: number) {
@@ -42,14 +39,11 @@ function App() {
   //Draws cards initially
   if (!loaded) {
     setLoaded(true);
-    setDeck(mapDeck(drawnCards));
+    loadCards();
   }
 
-  //Function that is passed to card elements
-  //I structured it like this to comply with the async nature of setState
-  function cardClicked(name: string): void {
-    setClickedCards((prevCards) => [...prevCards, name]);
-    setCurrentlyClickedCard(name);
+  function loadCards() {
+    setDrawnCards(getCards(gods, 4 + 2 * level));
   }
 
   //Renders the current card elements
@@ -65,8 +59,18 @@ function App() {
     return newArr;
   }
 
+  //Checks how many times a string is present in an array
+  //TODO: SEE IF USEFUL
+  function checkIfArrayContainsString(arr: string[], string: string): boolean {
+    let occurrences = 0;
+    for (let val of arr) {
+      if (val === string) occurrences++;
+    }
+    return occurrences > 1;
+  }
+
   //Shuffles the current cards
-  function shuffleDeck(array: God[]): God[] {
+  function shuffleDeck(array: JSX.Element[]): JSX.Element[] {
     let newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
@@ -77,49 +81,60 @@ function App() {
     return newArr;
   }
 
-  //Checks how many times a string is present in an array
-  function checkIfArrayContainsString(arr: string[], string: string): boolean {
-    let occurrences = 0;
-    for (let val of arr) {
-      if (val === string) occurrences++;
+  //Handle a card being clicked
+  function cardClicked(wasClickedBefore: boolean): void {
+    if (wasClickedBefore) {
+      loseGame();
+    } else {
+      upScore(1);
+      upClickedCards(1);
+      setDeck((prevDeck) => shuffleDeck(prevDeck));
     }
-    return occurrences > 1;
   }
 
-  //Replaces the old carcClicked function because clickedCards's value wasn't being read properly
-  //Ignore the dependency array warning
+  //Check if all cards were clicked
   useEffect(() => {
-    if (!checkIfArrayContainsString(clickedCards, currentlyClickedCard)) {
-      setDeck(mapDeck(shuffleDeck(drawnCards)));
-    } else setGameOver(true);
-  }, [clickedCards, currentlyClickedCard, drawnCards]);
-
-  //Update current score based on the amount of cards clicked
-  useEffect(() => {
-    if (!gameOver) {
-      setScore(clickedCards.length);
-      if (score === deck.length) {
-        setLevel((prevLevel) => prevLevel + 1);
-      }
+    if (clickedCards === drawnCards.length) {
+      upLevel(1);
     }
-  }, [clickedCards, gameOver, deck.length, score]);
+  }, [clickedCards, drawnCards.length]);
 
-  //Update best score if score is higher
+  //Create all card components once the card objects are drawn
+  useEffect(() => {
+    setDeck(mapDeck(drawnCards));
+  }, [drawnCards]);
+
+  //Get card objects from array when level goes up
+  useEffect(() => {
+    setClickedCards(0);
+    loadCards();
+  }, [level]);
+
+  //Update best score if current score is higher
   useEffect(() => {
     if (score > best) setBest(score);
-  }, [score, best]);
+  }, [score]);
 
-  //Executes on game over
-  useEffect(() => {
+  //Increase state variables
+  function upClickedCards(amount: number): void {
+    setClickedCards((prevAmount) => prevAmount + amount);
+  }
+
+  function upScore(amount: number): void {
+    setScore((prevScore) => prevScore + amount);
+  }
+
+  function upLevel(amount: number): void {
+    setLevel((prevLevel) => prevLevel + amount);
+  }
+
+  //Reset all necessary state variables on game over
+  function loseGame() {
+    setLevel(0);
     setScore(0);
-    //Kinda fixes best being increased after game over
-    setBest((prevBest) => prevBest - 1);
-  }, [gameOver]);
-
-  //Get new cards on level change
-  useEffect(() => {
-    setDrawnCards(getCards(gods, 4 + 2 * level));
-  }, [level]);
+    setClickedCards(0);
+    setLoaded(false);
+  }
 
   return (
     <div className='App'>
