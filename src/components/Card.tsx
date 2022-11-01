@@ -12,7 +12,7 @@ function Card(props: { img: string; name: string; clicked: Function }) {
   }
 
   return (
-    <div onClick={() => handleClick} className='card'>
+    <div onClick={handleClick} className='card'>
       <img src={img} alt={name + ' character art'} className='card-img' />
       <div className='card-text'>{name}</div>
     </div>
