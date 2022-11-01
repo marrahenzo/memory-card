@@ -9,7 +9,6 @@ import uniqid from 'uniqid';
 
 function App() {
   const [score, setScore] = useState(0);
-  /* TODO: get value from localStorage */
   const [best, setBest] = useState(0);
   const [level, setLevel] = useState(0);
   const [clickedCards, setClickedCards] = useState(0);
@@ -38,6 +37,8 @@ function App() {
 
   //Draws cards initially
   if (!loaded) {
+    if (localStorage.getItem('bestScore'))
+      setBest(JSON.parse(localStorage.getItem('bestScore')!));
     setLoaded(true);
     loadCards();
   }
@@ -112,8 +113,15 @@ function App() {
 
   //Update best score if current score is higher
   useEffect(() => {
-    if (score > best) setBest(score);
+    if (score > best) {
+      setBest(score);
+    }
   }, [score]);
+
+  //Upload best score to localStorage
+  useEffect(() => {
+    localStorage.setItem('bestScore', JSON.stringify(best));
+  }, [best]);
 
   //Increase state variables
   function upClickedCards(amount: number): void {
