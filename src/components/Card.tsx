@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../styles/Card.css';
 
 function Card(props: { img: string; name: string; clicked: Function }) {
