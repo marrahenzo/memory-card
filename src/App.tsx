@@ -59,16 +59,6 @@ function App() {
     return newArr;
   }
 
-  //Checks how many times a string is present in an array
-  //TODO: SEE IF USEFUL
-  function checkIfArrayContainsString(arr: string[], string: string): boolean {
-    let occurrences = 0;
-    for (let val of arr) {
-      if (val === string) occurrences++;
-    }
-    return occurrences > 1;
-  }
-
   //Shuffles the current cards
   function shuffleDeck(array: JSX.Element[]): JSX.Element[] {
     let newArr = [...array];
