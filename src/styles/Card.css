@@ -1,6 +1,6 @@
 .card {
-  width: 270px;
-  height: 400px;
+  width: clamp(15vw, 16vw, 17vw);
+  height: auto;
   border: 3px solid #85784a;
   display: flex;
   justify-content: center;
@@ -22,8 +22,8 @@
 
 .card-text {
   font-family: GFSNeohellenic, sans-serif;
-  font-size: 40px;
-  padding-top: 10px;
+  font-size: 250%;
+  padding-top: 1%;
   color: white;
   background-color: black;
   text-align: center;
