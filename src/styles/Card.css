@@ -23,7 +23,9 @@
 .card-text {
   font-family: GFSNeohellenic, sans-serif;
   font-size: 250%;
-  padding-top: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   background-color: black;
   text-align: center;
