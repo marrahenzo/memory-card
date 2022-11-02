@@ -39,5 +39,6 @@
 #card-container {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, minmax(5vw, 18vw));
 }
