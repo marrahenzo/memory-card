@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Card from './components/Card';
 import gods, { God } from './gods';
 import uniqid from 'uniqid';
+import WinScreen from './components/WinScreen';
 
 function App() {
   const [score, setScore] = useState(0);
@@ -18,6 +19,9 @@ function App() {
   ]);
   //Variable to initially load cards
   const [loaded, setLoaded] = useState(false);
+  const [winScreen, setWinScreen] = useState(
+    <WinScreen visibility='' restart={loseGame} />
+  );
 
   //Take n elements from the gods array and put them in another array
   function getCards(sourceArr: God[], amount: number) {
@@ -96,8 +100,12 @@ function App() {
 
   //Get card objects from array when level goes up
   useEffect(() => {
-    setClickedCards(0);
-    loadCards();
+    if (level < 12) {
+      setClickedCards(0);
+      loadCards();
+    } else {
+      winGame();
+    }
   }, [level]);
 
   //Update best score if current score is higher
@@ -131,10 +139,17 @@ function App() {
     setScore(0);
     setClickedCards(0);
     setLoaded(false);
+    setWinScreen(<WinScreen visibility='' restart={loseGame} />);
+  }
+
+  //Show win screen
+  function winGame() {
+    setWinScreen(<WinScreen visibility='active' restart={loseGame} />);
   }
 
   return (
     <div className='App'>
+      {winScreen}
       <div id='background-image'></div>
       <div id='header'>
         <img src={logo} alt='Smite logo' />
