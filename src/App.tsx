@@ -1,7 +1,6 @@
 import Counter from './components/Counter';
 import './styles/App.css';
 import logo from './media/images/smitelogo.png';
-import background from './media/images/background.jpg';
 import { useEffect, useState } from 'react';
 import Card from './components/Card';
 import gods, { God } from './gods';
@@ -146,7 +145,7 @@ function App() {
 
   return (
     <div className='App'>
-      <img src={background} alt='Background' id='background-image' />
+      <div id='background-image'></div>
       <div id='header'>
         <img src={logo} alt='Smite logo' />
       </div>
