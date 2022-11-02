@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/memory-card/static/css/main.0f4a4038.css",
+    "main.js": "/memory-card/static/js/main.11715829.js",
+    "static/media/smitelogo.png": "/memory-card/static/media/smitelogo.a8666dd69b44119577e1.png",
+    "static/media/athena.jpg": "/memory-card/static/media/athena.618f7710bcebab6b4a62.jpg",
+    "static/media/susano.jpg": "/memory-card/static/media/susano.f11bc41e5a8bf7c5ead7.jpg",
+    "static/media/GFSNeohellenic-Regular.ttf": "/memory-card/static/media/GFSNeohellenic-Regular.f50bd4a0148cf29e90f9.ttf",
+    "static/media/background.jpg": "/memory-card/static/media/background.bf24c17268e5e5a1ff6f.jpg",
+    "static/media/Montserrat-VariableFont_wght.ttf": "/memory-card/static/media/Montserrat-VariableFont_wght.3faa3eef13649db02044.ttf",
+    "static/media/change.jpg": "/memory-card/static/media/change.6d29df3b00dafaa03deb.jpg",
+    "static/media/khepri.jpg": "/memory-card/static/media/khepri.12867ffca2b58a377fac.jpg",
+    "static/media/ravana.jpg": "/memory-card/static/media/ravana.485f5dc12e4a8dd66810.jpg",
+    "static/media/tyr.jpg": "/memory-card/static/media/tyr.5d3d679e859e47062d3f.jpg",
+    "static/media/geb.jpg": "/memory-card/static/media/geb.7a7db3c88d2686d8b78c.jpg",
+    "static/media/ra.jpg": "/memory-card/static/media/ra.0f7e49795777a1e9fcea.jpg",
+    "static/media/sobek.jpg": "/memory-card/static/media/sobek.fdaaa3ba2b734ec30a2c.jpg",
+    "static/media/zeus.jpg": "/memory-card/static/media/zeus.efecb6541b814a3a125f.jpg",
+    "static/media/fenrir.jpg": "/memory-card/static/media/fenrir.15262603944e63756c31.jpg",
+    "static/media/xbalanque.jpg": "/memory-card/static/media/xbalanque.9181995bd337cfe05329.jpg",
+    "static/media/ymir.jpg": "/memory-card/static/media/ymir.e5089d33c78c9ef1e191.jpg",
+    "static/media/sol.jpg": "/memory-card/static/media/sol.48f975565d900565c0b2.jpg",
+    "static/media/bellona.jpg": "/memory-card/static/media/bellona.b9a29d6658b2526ff1e2.jpg",
+    "static/media/loki.jpg": "/memory-card/static/media/loki.f3d3127945d1758b47d6.jpg",
+    "static/media/neith.jpg": "/memory-card/static/media/neith.416aa23534567e44284a.jpg",
+    "static/media/hebo.jpg": "/memory-card/static/media/hebo.13924098ff22502af2b0.jpg",
+    "static/media/kukulkan.jpg": "/memory-card/static/media/kukulkan.d131cd54a7130b933569.jpg",
+    "static/media/aokuang.jpg": "/memory-card/static/media/aokuang.c98069edc8858516374c.jpg",
+    "static/media/houyi.jpg": "/memory-card/static/media/houyi.85e920658bcd6b5855bd.jpg",
+    "static/media/kumbhakarna.jpg": "/memory-card/static/media/kumbhakarna.75f483658b930eceb1eb.jpg",
+    "static/media/thor.jpg": "/memory-card/static/media/thor.38e18bc5d890c76b4b7e.jpg",
+    "static/media/janus.jpg": "/memory-card/static/media/janus.660a7a7212b20abee4d9.jpg",
+    "static/media/mercury.jpg": "/memory-card/static/media/mercury.149e6c9d073b45ec8904.jpg",
+    "static/media/apollo.jpg": "/memory-card/static/media/apollo.37b6b34a829ff0da4960.jpg",
+    "index.html": "/memory-card/index.html",
+    "main.0f4a4038.css.map": "/memory-card/static/css/main.0f4a4038.css.map",
+    "main.11715829.js.map": "/memory-card/static/js/main.11715829.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f4a4038.css",
+    "static/js/main.11715829.js"
+  ]
+}
